@@ -18,7 +18,7 @@ ol, ul {
     margin: auto;
 }
   
-.white{
+.white {
     background: #fff;
     border: 1px solid #999;
     float: left; 
@@ -58,7 +58,6 @@ ol, ul {
     flex-direction: row;
     outline:none;
     -webkit-filter: invert();
-
 }
   
 .game-info {
