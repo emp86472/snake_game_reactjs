@@ -57,7 +57,8 @@ ol, ul {
     display: flex;
     flex-direction: row;
     outline:none;
-    
+    -webkit-filter: invert();
+
 }
   
 .game-info {

@@ -132,7 +132,7 @@ class Game extends React.Component {
           this.snakeGame = new SnakeGame(this.row, this.col);
         } //else
         this.setState({grid: this.updateGrid(),});
-      }, 75);
+      }, 98);
     } //if
   } //start
 
@@ -158,11 +158,5 @@ class Game extends React.Component {
 } //Game
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-function handleClicked() {
-  console.log("pog");
-  document.getElementById("pog").focus();
-} //handleClicked
-document.addEventListener('click', handleClicked);
 
 root.render(<Game row="19" col="19" />);

@@ -1,3 +1,6 @@
+import deathSound from "./resource/snake-death.mp3"
+import eatSound from "./resource/snake-eat.mp3"
+
 const Direction = {
     UP: Symbol("up"),
     DOWN: Symbol("down"),
@@ -14,6 +17,8 @@ class SnakePart {
 
 class SnakeGame {
     constructor(row, col) {
+        this.snakeDeath = new Audio(deathSound);
+        this.snakeEat = new Audio(eatSound);
         this.gameOver = false;
         this.row = row;
         this.col = col;
@@ -38,39 +43,26 @@ class SnakeGame {
     move() {
         let head = Object.assign({}, this.snake[0]); //deep copy objects with no nested objects
         let tail = Object.assign({}, this.snake[this.snake.length - 1]);
-
-        /** 
-        let currentX = this.player.x; //row
-        let currentY = this.player.y; //col
-        let newX = this.player.x;
-        let newY = this.player.y;
-        */
         switch (this.direction) {
             case Direction.LEFT:
-                //console.log("left");
-                //newY--;
                 head.y--;
             break;
-            case Direction.RIGHT:
-                //console.log("right");
-                //newY++;
+            case Direction.RIGHT:                
                 head.y++;
             break;
-            case Direction.DOWN:
-                //console.log("down");
-                //newX++;
+            case Direction.DOWN:                
                 head.x++;
             break;
-            case Direction.UP:
-                //console.log("up");
-                //newX--;
+            case Direction.UP:                
                 head.x--;
             break;
         } //switch
         if (head.x >= this.row || head.y >= this.col || head.x < 0 || head.y < 0) { //outbounds
+            this.snakeDeath.play();
             return false;
         } //if
         if (this.grid[head.x][head.y] === 1) { //body collision 
+            this.snakeDeath.play();
             return false;
         } //if
         let food = this.grid[head.x][head.y];
@@ -78,18 +70,12 @@ class SnakeGame {
         this.snake.unshift(head);
         if (food === 2) { //if there is food
             //dont pop tail
+            this.snakeEat.play();
             this.placeFood();
         } else {
             this.grid[tail.x][tail.y] = 0;
             this.snake.pop();
         } //if
-
-        /** 
-        this.grid[currentX][currentY] = 0;
-        this.grid[newX][newY] = 1;
-        this.player.x = newX;
-        this.player.y = newY;
-        */
         return true;
     } //move
 
