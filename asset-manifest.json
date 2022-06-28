@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/snake_game_reactjs/static/css/main.9c479cc5.css",
+    "main.js": "/snake_game_reactjs/static/js/main.b9bdcda4.js",
+    "static/media/snake-eat.mp3": "/snake_game_reactjs/static/media/snake-eat.ea5f04e72d295b9c0643.mp3",
+    "static/media/snake-death.mp3": "/snake_game_reactjs/static/media/snake-death.85778e8e894c27d01772.mp3",
+    "index.html": "/snake_game_reactjs/index.html",
+    "main.9c479cc5.css.map": "/snake_game_reactjs/static/css/main.9c479cc5.css.map",
+    "main.b9bdcda4.js.map": "/snake_game_reactjs/static/js/main.b9bdcda4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9c479cc5.css",
+    "static/js/main.b9bdcda4.js"
+  ]
+}
